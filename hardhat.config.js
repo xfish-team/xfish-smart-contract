@@ -2,7 +2,23 @@ require("@nomicfoundation/hardhat-toolbox");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.17",
+  solidity: {
+    version: "0.8.9",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 1000,
+      },
+    },
+  },
+  sourcify: {
+    enabled: true,
+  },
+  etherscan: {
+    apiKey: {
+      arbitrumOne: "BDP1JMZ8GN18S6GP761RV5UD3W78S1F24H",
+    },
+  },
   networks: {
     hardhat: {
       chainId: 1337,
@@ -10,13 +26,12 @@ module.exports = {
     arbitrumSepolia: {
       url: "https://sepolia-rollup.arbitrum.io/rpc",
       chainId: 421614,
-      accounts: [
-        "060d73c475269fecee454f13b1ad57ba7102a3ae416d348ddfcfd411bbf048c7",
-      ],
+      accounts: [],
     },
+
     arbitrumOne: {
       url: "https://arb1.arbitrum.io/rpc",
-      //accounts: [ARBITRUM_MAINNET_TEMPORARY_PRIVATE_KEY]
+      accounts: {},
     },
   },
 };
